@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment } from "./cartSlice";
+import { increment, selectItems } from "./cartSlice";
 
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -39,7 +39,15 @@ export default function Cart() {
   // const count = useSelector(selectCount);
   const dispatch = useDispatch();
 
+  const items = useSelector(selectItems);
+  const totalAmount = items.reduce((amount, item)=>item.price*item.quantity + amount , 0)
+  const totalItems = items.reduce((total, item)=>item.quantity + total , 0)
+
   const [open, setOpen] = useState(true);
+
+  const handleQuantity=(e)=>{
+       
+  }
 
   return (
     <>
@@ -51,12 +59,12 @@ export default function Cart() {
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
-                {products.map((product) => (
+                {items.map((product) => (
                   <li key={product.id} className="flex py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <img
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
+                        src={product.thumbnail}
+                        alt={product.title}
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
@@ -65,12 +73,12 @@ export default function Cart() {
                       <div>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>
-                            <a href={product.href}>{product.name}</a>
+                            <a href={product.href}>{product.title}</a>
                           </h3>
-                          <p className="ml-4">{product.price}</p>
+                          <p className="ml-4">${product.price}</p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
-                          {product.color}
+                          {product.brand}
                         </p>
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">
@@ -82,9 +90,12 @@ export default function Cart() {
                             Qty
                           </label>
 
-                          <select id="quantity" className="h-2/5">
+                          <select id="quantity" className="h-2/5" onChange={handleQuantity}>
                                 <option value="1" key="">1</option>
                                 <option value="2" key="">2</option>
+                                <option value="3" key="">3</option>
+                                <option value="4" key="">4</option>
+                                <option value="5" key="">5</option>
                           </select>
                           
                         </div>
@@ -108,7 +119,11 @@ export default function Cart() {
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <div className="flex justify-between text-base font-medium text-gray-900">
               <p>Subtotal</p>
-              <p>$262.00</p>
+              <p>${totalAmount}</p>
+            </div>
+            <div className="flex justify-between text-base font-medium text-gray-900">
+              <p>Total items in cart</p>
+              <p>{totalItems} items</p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500">
               Shipping and taxes calculated at checkout.
