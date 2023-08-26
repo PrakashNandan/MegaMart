@@ -21,6 +21,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchItemsByUserId } from './features/cart/cartAPI';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
+import Page_404 from './features/Pages/Page_404';
+import OrderSuccessPage from './features/Pages/OrderSuccessPage';
+import UserOrdersPage from './features/Pages/UserOrdersPage'
+
 
 
 const router = createBrowserRouter([
@@ -47,6 +51,18 @@ const router = createBrowserRouter([
   {
     path: "/ProductDetails/:id",
     element: <Protected><ProductDetailsPage/></Protected>,
+  },
+  {
+    path: "/order-success/:id",
+    element: <OrderSuccessPage></OrderSuccessPage>,
+  },
+  {
+    path: "/orders",
+    element: <UserOrdersPage></UserOrdersPage>,
+  },
+  {
+    path: "*",
+    element: <Page_404></Page_404>,
   },
 ]);
 

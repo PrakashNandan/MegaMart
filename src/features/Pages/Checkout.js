@@ -11,7 +11,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { updateUser } from "../auth/authAPI";
 import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
-import { createOrderAsync } from "../order/orderSlice";
+import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
 
 
 
@@ -27,6 +27,7 @@ function Checkout() {
   } = useForm();
 
   const user = useSelector(selectLoggedInUser) || { addresses: [] };
+  const orederPlaced = useSelector(selectCurrentOrder);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState('cash');
@@ -61,7 +62,7 @@ function Checkout() {
   };
 
   const handleOrder = (e) => {
-    const order = {items, totalAmount, totalItems, user, paymentMethod, selectedAddress}
+    const order = {items, totalAmount, totalItems, user, paymentMethod, selectedAddress, status:'pending'}
     dispatch(createOrderAsync(order))
     //TODO : Redirect to order-success page
     //TODO : clear cart after order
@@ -74,6 +75,7 @@ function Checkout() {
   return (
     <>
     {!items.length && <Navigate to="/" replace={true}></Navigate>}
+    {orederPlaced && <Navigate to={`/order-success/${orederPlaced.id}`} replace={true}></Navigate> }
     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
