@@ -2024,13 +2024,22 @@
           "pinCode": "801110"
         },
         {
-          "name": "Pushkar Nandan",
+          "name": "Pushkar kumar Nandan",
           "email": "pushkarnandan@gmail.com",
-          "phone": "123456789",
-          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
           "city": "Patna",
           "state": "Bihar",
-          "pinCode": "801110"
+          "pinCode": "801110",
+          "phone": "123456789",
+          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra"
+        },
+        {
+          "name": "Jyoti shree",
+          "email": "prakash21_ug@ee.nits.ac.in",
+          "city": "Patna",
+          "state": "Bihar",
+          "pinCode": "801110",
+          "phone": "09472908838",
+          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra"
         }
       ],
       "id": 1
@@ -2046,37 +2055,103 @@
       "password": "Prakash@22",
       "addresses": [
         {
-          "name": "Prakash Nandan",
-          "email": "prakash21_ug@ee.nits.ac.in",
-          "phone": "09472908838",
-          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
+          "name": "Prakkkash ",
+          "email": "prakashnandan28@gmail.com",
           "city": "Patna",
           "state": "Bihar",
-          "pinCode": "801110"
-        },
-        {
-          "name": "Aakash",
-          "email": "aakashnandan@gmail.com",
+          "pinCode": "801110",
           "phone": "09472908838",
-          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
-          "city": "Patna",
-          "state": "Bihar",
-          "pinCode": "801110"
-        },
-        {
-          "name": "shubham",
-          "email": "shubham@gmail.com",
-          "phone": "09472908838",
-          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
-          "city": "Patna",
-          "state": "Bihar",
-          "pinCode": "801110"
+          "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra"
         }
       ],
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Fog Scent Xpressio Perfume",
+      "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+      "price": 13,
+      "discountPercentage": 8.14,
+      "rating": 4.59,
+      "stock": 61,
+      "brand": "Fog Scent Xpressio",
+      "category": "fragrances",
+      "thumbnail": "https://i.dummyjson.com/data/products/13/thumbnail.webp",
+      "images": [
+        "https://i.dummyjson.com/data/products/13/1.jpg",
+        "https://i.dummyjson.com/data/products/13/2.png",
+        "https://i.dummyjson.com/data/products/13/3.jpg",
+        "https://i.dummyjson.com/data/products/13/4.jpg",
+        "https://i.dummyjson.com/data/products/13/thumbnail.webp"
+      ],
+      "quantity": 1,
+      "user": 3,
+      "id": 1
+    },
+    {
+      "title": "Microsoft Surface Laptop 4",
+      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+      "price": 1499,
+      "discountPercentage": 10.23,
+      "rating": 4.43,
+      "stock": 68,
+      "brand": "Microsoft Surface",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/8/1.jpg",
+        "https://i.dummyjson.com/data/products/8/2.jpg",
+        "https://i.dummyjson.com/data/products/8/3.jpg",
+        "https://i.dummyjson.com/data/products/8/4.jpg",
+        "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 3,
+      "id": 2
+    },
+    {
+      "title": "Microsoft Surface Laptop 4",
+      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+      "price": 1499,
+      "discountPercentage": 10.23,
+      "rating": 4.43,
+      "stock": 68,
+      "brand": "Microsoft Surface",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/8/1.jpg",
+        "https://i.dummyjson.com/data/products/8/2.jpg",
+        "https://i.dummyjson.com/data/products/8/3.jpg",
+        "https://i.dummyjson.com/data/products/8/4.jpg",
+        "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 3,
+      "id": 3
+    },
+    {
+      "title": "Samsung Galaxy Book",
+      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+      "price": 1499,
+      "discountPercentage": 4.15,
+      "rating": 4.25,
+      "stock": 50,
+      "brand": "Samsung",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/7/1.jpg",
+        "https://i.dummyjson.com/data/products/7/2.jpg",
+        "https://i.dummyjson.com/data/products/7/3.jpg",
+        "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 4
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2742,6 +2817,100 @@
       },
       "status": "pending",
       "id": 7
+    },
+    {
+      "items": [
+        {
+          "title": "Plastic Table",
+          "description": "V﻿ery good quality plastic table for multi purpose now in reasonable price",
+          "price": 50,
+          "discountPercentage": 4,
+          "rating": 4.01,
+          "stock": 136,
+          "brand": "Multi Purpose",
+          "category": "furniture",
+          "thumbnail": "https://i.dummyjson.com/data/products/34/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/34/1.jpg",
+            "https://i.dummyjson.com/data/products/34/2.jpg",
+            "https://i.dummyjson.com/data/products/34/3.jpg",
+            "https://i.dummyjson.com/data/products/34/4.jpg",
+            "https://i.dummyjson.com/data/products/34/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 3,
+          "id": 1
+        },
+        {
+          "title": "American Vintage Wood Pendant Light",
+          "description": "American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante",
+          "price": 46,
+          "discountPercentage": 8.84,
+          "rating": 4.32,
+          "stock": 138,
+          "brand": "Ifei Home",
+          "category": "lighting",
+          "thumbnail": "https://i.dummyjson.com/data/products/99/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/99/1.jpg",
+            "https://i.dummyjson.com/data/products/99/2.jpg",
+            "https://i.dummyjson.com/data/products/99/3.jpg",
+            "https://i.dummyjson.com/data/products/99/4.jpg",
+            "https://i.dummyjson.com/data/products/99/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 3,
+          "id": 2
+        }
+      ],
+      "totalAmount": 96,
+      "totalItems": 2,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "Prakash@22",
+        "addresses": [
+          {
+            "name": "Prakash Nandan",
+            "email": "prakash21_ug@ee.nits.ac.in",
+            "phone": "09472908838",
+            "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
+            "city": "Patna",
+            "state": "Bihar",
+            "pinCode": "801110"
+          },
+          {
+            "name": "Aakash",
+            "email": "aakashnandan@gmail.com",
+            "phone": "09472908838",
+            "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
+            "city": "Patna",
+            "state": "Bihar",
+            "pinCode": "801110"
+          },
+          {
+            "name": "shubham",
+            "email": "shubham@gmail.com",
+            "phone": "09472908838",
+            "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
+            "city": "Patna",
+            "state": "Bihar",
+            "pinCode": "801110"
+          }
+        ],
+        "id": 3
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Aakash",
+        "email": "aakashnandan@gmail.com",
+        "phone": "09472908838",
+        "street": "C/O Bhairaw Nand Saw, vill - Karhara, Post-Sehra",
+        "city": "Patna",
+        "state": "Bihar",
+        "pinCode": "801110"
+      },
+      "status": "pending",
+      "id": 8
     }
   ]
 }

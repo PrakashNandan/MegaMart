@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { updateUser } from "../auth/authAPI";
 import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
 import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
+import { selectUserInfo } from "../user/userSlice";
 
 
 
@@ -26,7 +27,7 @@ function Checkout() {
     formState: { errors },
   } = useForm();
 
-  const user = useSelector(selectLoggedInUser) || { addresses: [] };
+  const user = useSelector(selectUserInfo) || { addresses: [] };
   const orederPlaced = useSelector(selectCurrentOrder);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
