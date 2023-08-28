@@ -38,7 +38,8 @@ export default function Signup() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form noValidate className="space-y-6" onSubmit={handleSubmit((data)=>{
-                  dispatch(createUserAsync({email:data.email, password: data.password, addressess:[]}))
+                  dispatch(createUserAsync({email:data.email, password: data.password, addressess:[], role:'user'}))
+                  // TODO : we will give the role from backend
                   console.log(data);
           })}>
             <div>
@@ -76,12 +77,12 @@ export default function Signup() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <Link
+                    to={'/forgot-password'}
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
 

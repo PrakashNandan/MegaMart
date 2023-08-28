@@ -35,3 +35,14 @@ export function checkUser(loginInfo) {
 }   
 
 
+
+export function signOut(userId) {
+  return new Promise(async (resolve) => {
+    
+    // in backend we will remove userloggedin id
+
+    resolve({ data: "Success" });
+  });
+} 
+
+
