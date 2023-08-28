@@ -10,7 +10,7 @@ import {
   selectBrands,
   fetchCategoriesAsync,
   fetchBrandsAsync,
-} from "../ProductListSlice";
+} from "../../pageList/ProductListSlice";
 
 import { Fragment } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
@@ -41,7 +41,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductList() {
+export default function AdminProductList() {
 
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
@@ -109,7 +109,6 @@ export default function ProductList() {
     console.log("useEffect called");
     const pagination = {_page:page, _limit:ITEMS_PER_PAGE}
     dispatch(fetchAllProductsByFilterAsync({filter,sort, pagination}));
-    // TODO : server will filter the deleted products
 
   }, [dispatch,filter,sort,page]);
 
@@ -205,10 +204,23 @@ export default function ProductList() {
               </h2>
 
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-               <DesktopFilter filters={filters} handleFilter={handleFilter}></DesktopFilter>
+                <DesktopFilter filters={filters} handleFilter={handleFilter}></DesktopFilter>
 
-                {/* Product grid */}
-                <ProductGrid products={products}></ProductGrid>
+                  {/* Product grid */}
+
+                
+
+                  <div className="lg:col-span-3">
+                    <div>
+                      <Link
+                        to="/admin/product-form"
+                        className="rounded-md mx-10 my-5 bg-green-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      >
+                        Add New Product
+                      </Link>
+                    </div>
+                    <ProductGrid products={products}></ProductGrid>
+                </div>
               </div>
             </section>
 
@@ -489,6 +501,7 @@ function ProductGrid({products}){
         <div className="mx-auto max-w-2xl px-4 py-0 sm:px-0 sm:py-1 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
+              <div>
               <Link to={`/ProductDetails/${product.id}`}>
                 <div
                   key={product.id}
@@ -532,8 +545,26 @@ function ProductGrid({products}){
                       </p>
                     </div>
                   </div>
+                  {product.deleted && (
+                    <div>
+                      <p className="text-sm text-red-400">product deleted</p>
+                    </div>
+                  )}
+
                 </div>
               </Link>
+
+              <div className="mt-5">
+                <Link
+                  to={`/admin/product-form/edit/${product.id}`}
+                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Edit Product
+                </Link>
+              </div>
+
+
+              </div>
             ))}
           </div>
         </div>
