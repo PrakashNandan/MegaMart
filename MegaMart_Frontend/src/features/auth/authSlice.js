@@ -1,0 +1,92 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { checkUser, createuser, signOut} from './authAPI';
+import { fetchedloggedInUserToken, updateUser } from '../user/userAPI';
+
+const initialState = {
+  loggedInUserToken: null,   // this should contain only identity related info, id, role
+  status: 'idle',
+  error:null,
+};
+
+export const createUserAsync = createAsyncThunk(
+  'user/createuser',
+  async (userData) => {
+    const response = await createuser(userData);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+
+export const checkUserAsync = createAsyncThunk(
+  'user/checkUser',
+  async (loginInfo, {rejectWithValue}) => {
+   try{
+    const response = await checkUser(loginInfo);
+    return response.data;
+   }catch(err){
+      console.log(err);
+      return rejectWithValue(err)
+   }
+
+  }
+);
+
+export const signOutAsync = createAsyncThunk(
+  'user/signOut',
+  async (id) => {
+    const response = await signOut(id);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+
+export const counterSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    },
+   
+  },
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(createUserAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createUserAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUserToken = action.payload;
+      })
+      .addCase(checkUserAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(checkUserAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUserToken = action.payload;
+      })
+      .addCase(checkUserAsync.rejected, (state, action) => {
+        state.status = 'idle';
+        state.error = action.payload;
+      })
+      .addCase(signOutAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(signOutAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUserToken = null;
+      })
+  },
+});
+
+
+export const selectLoggedInUser = (state) => state.auth.loggedInUserToken;
+export const selectError = (state) => state.auth.error;
+
+
+export const { increment} = counterSlice.actions;
+
+export default counterSlice.reducer;
