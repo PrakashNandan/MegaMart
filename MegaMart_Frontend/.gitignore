@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/MegaMart_Backend
 
 # testing
 /coverage
