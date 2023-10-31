@@ -4,6 +4,7 @@ import {
   DeleteItemFromCartAsync,
   addToCartAsync,
   increment,
+  selectCartLoaded,
   selectItems,
   updateCartAsync,
 } from "./cartSlice";
@@ -17,6 +18,7 @@ import { discountedPrice } from "../../app/constant";
 export default function Cart() {
   // const count = useSelector(selectCount);
   const dispatch = useDispatch();
+  const cartLoaded = useSelector(selectCartLoaded);
 
   const items = useSelector(selectItems);
   const totalAmount = items.reduce(
@@ -38,7 +40,7 @@ export default function Cart() {
 
   return (
     <>
-      {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {!items.length && cartLoaded && <Navigate to="/" replace={true}></Navigate>}
       <div className=" flex flex-col h-screen justify-center items-center ">
         <div className="mx-auto mt-12 mb-0 pt-12 bg-white max-w-7xl px-3 sm:px-5 lg:px-5 w-3/5 rounded-xl">
           <h1 className="text-4xl font-bold mt-2 tracking-tight text-gray-900 m-3">

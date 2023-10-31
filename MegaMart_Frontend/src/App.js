@@ -16,7 +16,7 @@ import ProductDetailsPage from "./features/Pages/ProductDetailsPage";
 import Protected from "./features/auth/Protected";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItemsByUserId } from "./features/cart/cartAPI";
-import { selectLoggedInUser } from "./features/auth/authSlice";
+import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from "./features/auth/authSlice";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 import Page_404 from "./features/Pages/Page_404";
 import OrderSuccessPage from "./features/Pages/OrderSuccessPage";
@@ -32,6 +32,8 @@ import ProductForm from "./features/AdminProductList/components/ProductForm";
 import AdminProductFormPage from "./features/Pages/AdminProductFormPage";
 import AdminOrders from "./features/AdminProductList/components/AdminOrders";
 import AdminOrdersPage from "./features/Pages/AdminOrdersPage";
+import { checkAuth } from "./features/auth/authAPI";
+import StripeCheckout from "./features/Pages/StripeCheckout";
 
 const router = createBrowserRouter([
   {
@@ -117,6 +119,14 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/stripe-checkout',
+    element: (
+      <Protected>
+           <StripeCheckout></StripeCheckout>
+      </Protected>
+    ),
+  },
+  {
     path: "/order-success/:id",
     element: <OrderSuccessPage></OrderSuccessPage>,
   },
@@ -145,6 +155,11 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+  const userChecked = useSelector(selectUserChecked);
+
+ useEffect(()=>{
+  dispatch(checkAuthAsync())
+ },[dispatch]);
 
   useEffect(() => {
     if (user) {
@@ -156,7 +171,8 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      {userChecked &&  <RouterProvider router={router} />}
+     
     </div>
   );
 }

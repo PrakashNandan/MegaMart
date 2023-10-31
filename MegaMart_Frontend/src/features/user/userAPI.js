@@ -1,7 +1,7 @@
 // A mock function to mimic making an async request for data
 export function fetchedLoggedInUserOrder() {
   return new Promise(async (resolve) =>{
-      const res = await fetch('http://localhost:8080/orders/own/');
+      const res = await fetch('/orders/own/');
       const data = await res.json();
       resolve({data});
   }
@@ -9,7 +9,7 @@ export function fetchedLoggedInUserOrder() {
 }
 export function fetchedLoggedInUser() {
   return new Promise(async (resolve) =>{
-      const res = await fetch('http://localhost:8080/users/own');
+      const res = await fetch('/users/own');
       const data = await res.json();
       resolve({data});
   }
@@ -19,7 +19,7 @@ export function fetchedLoggedInUser() {
 
 export function updateUser(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/users/'+update.id, {
+    const response = await fetch('/users/'+update.id, {
       method: 'PATCH',
       body: JSON.stringify(update),
       headers: { 'content-type': 'application/json' },
